@@ -1,0 +1,17 @@
+<html>
+  <body>
+      <script>
+        function dataReceived(data) {
+          var data = JSON.parse(data);
+          var htmlStr = "";
+          for(i=0; i<data.length; i++) {
+            htmlStr += data[i].name + " is " + data[i].alias + "! <br/><br/>";
+          }
+          var div = document.createElement("div");
+          div.innerHTML = htmlStr;
+          document.body.appendChild(div);
+        }
+      </script>
+      <script src="http://localhost:3000/jsonp?callback=dataReceived"></script>
+  </body>
+</html>
